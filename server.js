@@ -4,7 +4,9 @@ const path = require('node:path');
 
 const port = Number(process.env.PORT) || 3000;
 const root = __dirname;
-const state = Array(28).fill(false);
+const stateFile = process.env.STATE_FILE || path.join(root, '.data', 'checklist.json');
+const emptyState = () => Array(60).fill(false);
+let state = loadState();
 const clients = new Set();
 const assets = {
   '/': ['index.html', 'text/html; charset=utf-8'],
@@ -12,6 +14,27 @@ const assets = {
   '/styles.css': ['styles.css', 'text/css; charset=utf-8'],
   '/script.js': ['script.js', 'text/javascript; charset=utf-8']
 };
+
+function loadState() {
+  try {
+    const saved = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
+    if (!Array.isArray(saved) || saved.length !== 60 || saved.some((item) => typeof item !== 'boolean')) {
+      throw new Error('Invalid saved state');
+    }
+    return saved;
+  } catch (error) {
+    if (error.code !== 'ENOENT') console.warn('Kunde inte läsa sparad status, startar med en tom lista.');
+    return emptyState();
+  }
+}
+
+function saveState() {
+  const directory = path.dirname(stateFile);
+  const temporaryFile = `${stateFile}.${process.pid}.tmp`;
+  fs.mkdirSync(directory, { recursive: true });
+  fs.writeFileSync(temporaryFile, JSON.stringify(state), 'utf8');
+  fs.renameSync(temporaryFile, stateFile);
+}
 
 function broadcast() {
   const message = `event: state\ndata: ${JSON.stringify({ state, users: clients.size })}\n\n`;
@@ -47,6 +70,7 @@ const server = http.createServer((request, response) => {
           throw new Error('Invalid checklist update');
         }
         state[index] = checked;
+        saveState();
         broadcast();
         response.writeHead(204).end();
       } catch {
