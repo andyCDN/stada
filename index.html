@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Städa & packa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#">STÄDA<span>.</span></a>
+      <div class="date-pill"><span>●</span> Avresa imorgon</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CHECKLISTA · 2 VUXNA + 2 BARN</p>
+        <h1>Lugnt. Vi hinner.</h1>
+        <p class="intro">En realistisk plan för städning och packning – med gott om tid för barnen och det oväntade.</p>
+      </div>
+      <div class="progress-card">
+        <div class="ring" aria-label="0 procent klart"><strong id="percent">0%</strong><span>KLART</span></div>
+        <div><strong id="done-count">0 av 28</strong><span>uppgifter avklarade</span></div>
+      </div>
+    </section>
+
+    <section class="dashboard" aria-label="Dagens översikt">
+      <article><span class="icon">◷</span><div><small>UPPSKATTAD TID</small><strong>4 tim 45 min</strong></div></article>
+      <article><span class="icon">♙</span><div><small>FOKUS IDAG</small><strong>Städa & grundpacka</strong></div></article>
+      <article><span class="icon">☀</span><div><small>IMORGON</small><strong>1 tim slutfix</strong></div></article>
+    </section>
+
+    <nav class="tabs" aria-label="Filtrera checklistan">
+      <button class="active" data-filter="all">Alla <span>28</span></button>
+      <button data-filter="today">Idag <span>22</span></button>
+      <button data-filter="tomorrow">Imorgon <span>6</span></button>
+    </nav>
+
+    <section class="plan">
+      <div class="timeline-heading"><span>13:00</span><div><p>IDAG · GEMENSAM START</p><h2>Städa medan barnen är nära</h2></div></div>
+      <p class="support-note"><strong>Tips:</strong> En vuxen städar, den andra packar och hjälper barnen. Byt efter halva tiden.</p>
+      <div class="cards">
+        <article class="task-card" data-day="today">
+          <div class="card-head"><div class="room-icon yellow">⌂</div><div><h3>Kök</h3><p>55 min · Vuxen 1</p></div><span class="count">0 / 8</span></div>
+          <div class="tasks">
+            <label><input type="checkbox"><span>Diska, torka och ställ in allt</span></label>
+            <label><input type="checkbox"><span>Torka bänkytor och skåpluckor</span></label>
+            <label><input type="checkbox"><span>Rengör spis, ugn och använda apparater</span></label>
+            <label><input type="checkbox"><span>Töm sopor och torka skåpet invändigt</span></label>
+            <label><input type="checkbox"><span>Torka bord och stolar</span></label>
+            <label><input type="checkbox"><span>Dammsug och våttorka golvet</span></label>
+            <label><input type="checkbox"><span>Kontrollera vattenkranen</span></label>
+            <label><input type="checkbox"><span>Samla maten som ska packas</span></label>
+          </div>
+        </article>
+
+        <article class="task-card" data-day="today">
+          <div class="card-head"><div class="room-icon blue">▤</div><div><h3>Packning</h3><p>55 min · Vuxen 2 + barn</p></div><span class="count">0 / 6</span></div>
+          <div class="tasks">
+            <label><input type="checkbox"><span>Packa barnens kläder</span></label>
+            <label><input type="checkbox"><span>Packa smutskläder i separat påse</span></label>
+            <label><input type="checkbox"><span>Samla och torka badkläder</span></label>
+            <label><input type="checkbox"><span>Packa torra badkläder och handdukar</span></label>
+            <label><input type="checkbox"><span>Packa torrvaror och snacks</span></label>
+            <label><input type="checkbox"><span>Lägg fram morgondagens kläder</span></label>
+          </div>
+        </article>
+
+        <article class="task-card" data-day="today">
+          <div class="card-head"><div class="room-icon green">⌁</div><div><h3>Vardagsrum & hall</h3><p>45 min · Tillsammans</p></div><span class="count">0 / 5</span></div>
+          <div class="tasks">
+            <label><input type="checkbox"><span>Torka bord och stolar</span></label>
+            <label><input type="checkbox"><span>Dammsug soffor och fåtöljer</span></label>
+            <label><input type="checkbox"><span>Skaka filtar, kuddar och hallmatta</span></label>
+            <label><input type="checkbox"><span>Dammsug och våttorka vardagsrum</span></label>
+            <label><input type="checkbox"><span>Dammsug och våttorka hall</span></label>
+          </div>
+        </article>
+
+        <article class="task-card" data-day="today">
+          <div class="card-head"><div class="room-icon pink">✦</div><div><h3>Sovrum, WC & ute</h3><p>50 min · Dela upp</p></div><span class="count">0 / 3</span></div>
+          <div class="tasks">
+            <label><input type="checkbox"><span>Skaka sängkläder, dammsug och våttorka</span></label>
+            <label><input type="checkbox"><span>Rengör handfat, WC, spegel och golv</span></label>
+            <label><input type="checkbox"><span>Stäng kranar och torka av utemöbler</span></label>
+          </div>
+        </article>
+      </div>
+
+      <div class="timeline-heading tomorrow"><span>08:00</span><div><p>IMORGON · MAX 1 TIMME</p><h2>Slutfix & kylvaror</h2></div></div>
+      <div class="cards tomorrow-grid">
+        <article class="task-card accent" data-day="tomorrow">
+          <div class="card-head"><div class="room-icon orange">☀</div><div><h3>Sista rundan</h3><p>60 min · Båda vuxna</p></div><span class="count">0 / 6</span></div>
+          <div class="tasks">
+            <label><input type="checkbox"><span>Packa maten från kyl och frys sist</span></label>
+            <label><input type="checkbox"><span>Torka ur, stäng av och lämna dörrar på glänt</span></label>
+            <label><input type="checkbox"><span>Packa tandborstar och sista badkläderna</span></label>
+            <label><input type="checkbox"><span>Snabbkolla golv, sopor och disk</span></label>
+            <label><input type="checkbox"><span>Kontrollera alla vattenkranar</span></label>
+            <label><input type="checkbox"><span>Räkna väskor – alla redo!</span></label>
+          </div>
+        </article>
+        <aside class="buffer"><strong>Från lunch: fri buffert</strong><p>Ingen mer städning planerad. Tiden är avsatt för barnen, mat, pauser och sådant som dyker upp.</p></aside>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
